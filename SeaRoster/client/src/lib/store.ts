@@ -2,6 +2,7 @@
 import { create } from 'zustand';
 import { saveLogLocal, getLogLocal, dbPromise } from './db';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 // types
 interface RosterState {
@@ -35,7 +36,7 @@ export const useRosterStore = create<RosterState>((set, get) => ({
             try {
                 await axios({
                     method: item.method,
-                    url: `http://localhost:3001${item.url}`, // Hardcoded for dev
+                    url: `${API_URL}${item.url}`, // Hardcoded for dev
                     data: item.body
                 });
                 // On success, remove from queue

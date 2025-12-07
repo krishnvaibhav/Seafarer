@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import WorkRestGrid from '../components/WorkRestGrid';
 import { DEFAULT_GRID } from '../mockData';
+import { API_URL } from '../config';
 import { useRosterStore } from '../lib/store';
 import { getLogLocal, saveLogLocal } from '../lib/db';
 
@@ -25,7 +26,7 @@ const CrewLog = () => {
         if (!id) return;
 
         // Fetch from API
-        fetch(`http://localhost:3001/api/crew`)
+        fetch(`${API_URL}/api/crew`)
             .then(r => r.json())
             .then(list => {
                 const c = list.find((x: any) => x.id === id);
@@ -53,7 +54,7 @@ const CrewLog = () => {
                     // Optional: Try fetch from API if online
                     if (navigator.onLine) {
                         try {
-                            const res = await fetch(`http://localhost:3001/api/logs?crewId=${id}&startDate=${date}&endDate=${date}`);
+                            const res = await fetch(`${API_URL}/api/logs?crewId=${id}&startDate=${date}&endDate=${date}`);
                             const remoteLogs = await res.json();
                             if (remoteLogs && remoteLogs.length > 0) {
                                 setGrid(remoteLogs[0].grid);

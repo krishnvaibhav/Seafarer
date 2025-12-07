@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 interface ReportRow {
     id: string;
@@ -22,7 +23,7 @@ const Reports = () => {
     const fetchReport = async () => {
         setLoading(true);
         try {
-            const res = await axios.get(`http://localhost:3001/api/reports/compliance?month=${month}`);
+            const res = await axios.get(`${API_URL}/api/reports/compliance?month=${month}`);
             if (Array.isArray(res.data)) {
                 setReportData(res.data);
             } else {

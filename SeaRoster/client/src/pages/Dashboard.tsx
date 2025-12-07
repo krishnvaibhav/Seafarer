@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 // types
 interface Crew {
@@ -24,7 +25,7 @@ const Dashboard = () => {
 
     const fetchCrew = async () => {
         try {
-            const res = await axios.get('http://localhost:3001/api/crew');
+            const res = await axios.get(`${API_URL}/api/crew`);
             setCrewList(res.data);
         } catch (e) {
             console.error("Failed to fetch crew", e);
@@ -34,7 +35,7 @@ const Dashboard = () => {
     const handleAddCrew = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/api/crew', newCrew);
+            await axios.post(`${API_URL}/api/crew`, newCrew);
             setShowAddForm(false);
             setNewCrew({ firstName: '', lastName: '', rank: '', department: 'DECK' });
             fetchCrew();
