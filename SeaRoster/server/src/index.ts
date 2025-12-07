@@ -154,13 +154,9 @@ app.get('/api/reports/compliance', async (req, res) => {
 });
 
 // --- Serve Static Frontend (Production) ---
-import path from 'path';
-// Serve static files from client/dist
-app.use(express.static(path.join(__dirname, '../../client/dist')));
-
-// Handle client routing, return all requests to React app
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+// Note: Frontend is deployed separately (e.g. Vercel)
+app.get('/', (req, res) => {
+    res.send('SeaRoster Backend is Live! 🚀');
 });
 
 // Start
