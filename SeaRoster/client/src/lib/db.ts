@@ -10,6 +10,7 @@ interface SeaRosterDB extends DBSchema {
             grid: string;
             updatedAt: number;
             synced: boolean;
+            key: string;
         };
     };
     syncQueue: {

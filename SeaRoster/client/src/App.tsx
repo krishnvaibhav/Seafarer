@@ -3,7 +3,7 @@
 // c:\Users\krish\.gemini\antigravity\scratch\Seafarer\SeaRoster\client\src\App.tsx
 
 // import React from 'react'; // Not needed in Vite/React 18+
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import CrewLog from './pages/CrewLog';
 import Layout from './components/Layout';

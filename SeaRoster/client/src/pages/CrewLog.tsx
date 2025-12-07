@@ -1,5 +1,5 @@
 // c:\Users\krish\.gemini\antigravity\scratch\Seafarer\SeaRoster\client\src\pages\CrewLog.tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import WorkRestGrid from '../components/WorkRestGrid';
 import { DEFAULT_GRID } from '../mockData';

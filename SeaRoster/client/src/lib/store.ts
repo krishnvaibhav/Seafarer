@@ -1,6 +1,6 @@
 // c:\Users\krish\.gemini\antigravity\scratch\Seafarer\SeaRoster\client\src\lib\store.ts
 import { create } from 'zustand';
-import { saveLogLocal, getLogLocal, dbPromise } from './db';
+import { dbPromise } from './db';
 import axios from 'axios';
 import { API_URL } from '../config';
 

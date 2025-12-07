@@ -14,13 +14,7 @@ const WorkRestGrid: React.FC<WorkRestGridProps> = ({ grid, readOnly, onChange })
     const [dragType, setDragType] = useState<string | null>(null);
 
     // Helpers
-    const toggleSlot = (index: number) => {
-        if (readOnly) return;
-        const newSlots = [...slots];
-        // Toggle logic: If R -> W, if W -> R.
-        newSlots[index] = newSlots[index] === 'R' ? 'W' : 'R';
-        onChange(newSlots.join(''));
-    };
+
 
     const handleMouseDown = (index: number, val: string) => {
         if (readOnly) return;
